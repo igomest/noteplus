@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-   width: 13vw;
+   width: 13.5vw;
    height: 100%;
    background: var(--white);
-   margin: 30px;
-   border-radius: 5px;
+   margin: 26px;
+   margin-left: -5%;
+   border-radius: 10px;
    box-shadow: 0 0px 40px rgb(0 0 0 / 5%);
 `
 
 export const Content = styled.div`
    display: flex;
    height: 80%;
-   /* border: 1px solid red; */
    flex-direction: column;
    justify-content: space-around;
    align-items: center;
@@ -134,6 +134,7 @@ export const ImageContainer = styled.div`
    flex-direction: column;
    justify-content: space-evenly;
    align-items: center;
+   margin-bottom: -35px;
 
    div {
        width: 100%;

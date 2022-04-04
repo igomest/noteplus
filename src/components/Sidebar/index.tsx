@@ -1,4 +1,13 @@
-import { ActionsContainer, Container, Content, ImageContainer, Logo, NotesContainer, Profile, Separator } from "./style"
+import {
+    ActionsContainer,
+    Container,
+    Content,
+    ImageContainer,
+    Logo,
+    NotesContainer,
+    Profile,
+    Separator
+} from "./style"
 import logoImg from "../../assets/logo.svg"
 import profileImg from "../../assets/profile.svg"
 import moreImg from "../../assets/more.svg"
@@ -62,10 +71,6 @@ export const Sidebar = () => {
                         <p>Crie suas notas e aumente sua produtividade!</p>
                     </div>
                 </ImageContainer>
-
-                {/* <div>
-                    
-                </div> */}
             </Content>
         </Container>
     )
