@@ -25,9 +25,9 @@ export const LoginPage = () => {
                 </ButtonContainer>
 
                 <SingUpContainer>
-                    <p>Crie uma conta e</p>
+                    <p>Não tem uma conta?</p>
                     <button>
-                        Cadastre-se!
+                        Inscreva-se!
                     </button>
                 </SingUpContainer>
             </LoginContainer>

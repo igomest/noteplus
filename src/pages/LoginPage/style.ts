@@ -82,11 +82,15 @@ export const ButtonContainer = styled.div`
        height: 100%;
        background: var(--black);
        color: var(--white);
+
+       &:hover {
+           filter: brightness(0.9);
+       }
    }
 `
 
 export const SingUpContainer = styled.div`
-   width: 45%;
+   width: 50%;
    height: 10%;
    display: flex;
    justify-content: space-evenly;
@@ -102,5 +106,9 @@ export const SingUpContainer = styled.div`
        color: var(--black);
        font-weight: bold;
        font-size: 1rem;
+
+       :hover {
+           color: var(--blue);
+       }
    }
 `
