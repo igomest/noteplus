@@ -1,8 +1,7 @@
-import { Dashboard } from "./components/Dashboard"
-import { LoginPage } from "./pages/LoginPage"
-import { SignUpPage } from "./pages/SignUpPage"
-import { GlobalStyle } from "./styles/global"
-
+import { Dashboard } from "./components/Dashboard";
+import { LoginPage } from "./pages/LoginPage";
+import { SignUpPage } from "./pages/SignUpPage";
+import { GlobalStyle } from "./styles/global";
 
 export const App = () => {
   return (
@@ -12,6 +11,5 @@ export const App = () => {
       {/* <SignUpPage /> */}
       <GlobalStyle />
     </>
-  )
-}
-
+  );
+};

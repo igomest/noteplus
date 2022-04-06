@@ -1,107 +1,107 @@
-import { useState } from "react"
+import { useState } from "react";
 
 import {
-    ActionsContainer,
-    Container,
-    Content,
-    ImageContainer,
-    Logo,
-    NotesContainer,
-    OptionsContainer,
-    Profile,
-    ProfileOptions,
-    Separator
-} from "./style"
-import logoImg from "../../assets/logo.svg"
-import profileImg from "../../assets/profile.svg"
-import moreImg from "../../assets/more.svg"
-import notesImg from "../../assets/notes.svg"
-import tagsImg from "../../assets/tags.svg"
-import binImg from "../../assets/bin.svg"
-import checklistImg from "../../assets/checklist.svg"
-import arrowImg from "../../assets/arrow.svg"
-import settingImg from "../../assets/setting.svg"
-import logoutImg from "../../assets/logout.svg"
+  ActionsContainer,
+  Container,
+  Content,
+  ImageContainer,
+  Logo,
+  NotesContainer,
+  OptionsContainer,
+  Profile,
+  ProfileOptions,
+  Separator,
+} from "./style";
+import logoImg from "../../assets/logo.svg";
+import profileImg from "../../assets/profile.svg";
+import moreImg from "../../assets/more.svg";
+import notesImg from "../../assets/notes.svg";
+import tagsImg from "../../assets/tags.svg";
+import binImg from "../../assets/bin.svg";
+import checklistImg from "../../assets/checklist.svg";
+import arrowImg from "../../assets/arrow.svg";
+import settingImg from "../../assets/setting.svg";
+import logoutImg from "../../assets/logout.svg";
 
 export const Sidebar = () => {
-    const [openProfileOptions, setOpenProfileOptions] = useState(false)
-    
-    const handleOpenProfileOptions = () => {
-        setOpenProfileOptions(!openProfileOptions)
-    }
+  const [openProfileOptions, setOpenProfileOptions] = useState(false);
 
-    return (
-        <Container>
-            <Content>
-                <Logo>
-                    <img src={logoImg} alt="Logo" />
-                    <h3>DailyMirror</h3>
-                </Logo>
+  const handleOpenProfileOptions = () => {
+    setOpenProfileOptions(!openProfileOptions);
+  };
 
-                <Separator />
+  return (
+    <Container>
+      <Content>
+        <Logo>
+          <img src={logoImg} alt="Logo" />
+          <h3>DailyMirror</h3>
+        </Logo>
 
-                <Profile>
-                    <img src={profileImg} alt="Profile Icon" />
-                    <p>Klein Moretti</p>
+        <Separator />
 
-                    <ProfileOptions onClick={handleOpenProfileOptions}>
-                        <img src={arrowImg} alt="Arrow" />
-                        {openProfileOptions && (
-                            <OptionsContainer>
-                                <div>
-                                    <img src={settingImg} alt="Logout" />
-                                    <p>Account Setting</p>
-                                </div>
+        <Profile>
+          <img src={profileImg} alt="Profile Icon" />
+          <p>Klein Moretti</p>
 
-                                <div>
-                                    <img src={logoutImg} alt="Setting" />
-                                    <p>Logout</p>
-                                </div>
-                            </OptionsContainer>
-                        )}
-                    </ProfileOptions>
-                </Profile>
+          <ProfileOptions onClick={handleOpenProfileOptions}>
+            <img src={arrowImg} alt="Arrow" />
+            {openProfileOptions && (
+              <OptionsContainer>
+                <div>
+                  <img src={settingImg} alt="Logout" />
+                  <p>Account Setting</p>
+                </div>
 
-                <ActionsContainer>
-                    <input type="text" placeholder="Search" />
+                <div>
+                  <img src={logoutImg} alt="Setting" />
+                  <p>Logout</p>
+                </div>
+              </OptionsContainer>
+            )}
+          </ProfileOptions>
+        </Profile>
 
-                    <button type="button">
-                        <img src={moreImg} alt="More Icon" />
-                        Add Nova
-                    </button>
-                </ActionsContainer>
+        <ActionsContainer>
+          <input type="text" placeholder="Search" />
 
-                <NotesContainer>
-                    <div>
-                        <button>
-                            <img src={notesImg} alt="Notes Icon" />
-                            <p>Suas Notas</p>
-                        </button>
-                    </div>
+          <button type="button">
+            <img src={moreImg} alt="More Icon" />
+            Add Nova
+          </button>
+        </ActionsContainer>
 
-                    <div>
-                        <button>
-                            <img src={tagsImg} alt="Tags Icon" />
-                            <p>Tags</p>
-                        </button>
-                    </div>
+        <NotesContainer>
+          <div>
+            <button>
+              <img src={notesImg} alt="Notes Icon" />
+              <p>Suas Notas</p>
+            </button>
+          </div>
 
-                    <div>
-                        <button>
-                            <img src={binImg} alt="Bin Img" />
-                            <p>Bin</p>
-                        </button>
-                    </div>
-                </NotesContainer>
+          <div>
+            <button>
+              <img src={tagsImg} alt="Tags Icon" />
+              <p>Tags</p>
+            </button>
+          </div>
 
-                <ImageContainer>
-                    <img src={checklistImg} alt="" />
+          <div>
+            <button>
+              <img src={binImg} alt="Bin Img" />
+              <p>Bin</p>
+            </button>
+          </div>
+        </NotesContainer>
 
-                    <div>
-                        <p>Crie suas notas e aumente sua produtividade!</p>
-                    </div>
-                </ImageContainer>
-            </Content>
-        </Container>
-    )
-}
+        <ImageContainer>
+          <img src={checklistImg} alt="" />
+
+          <div>
+            <p>Crie suas notas e aumente sua produtividade!</p>
+          </div>
+        </ImageContainer>
+      </Content>
+    </Container>
+  );
+};
