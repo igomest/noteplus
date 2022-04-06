@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import {
     ActionsContainer,
     Container,
@@ -5,7 +7,9 @@ import {
     ImageContainer,
     Logo,
     NotesContainer,
+    OptionsContainer,
     Profile,
+    ProfileOptions,
     Separator
 } from "./style"
 import logoImg from "../../assets/logo.svg"
@@ -15,21 +19,47 @@ import notesImg from "../../assets/notes.svg"
 import tagsImg from "../../assets/tags.svg"
 import binImg from "../../assets/bin.svg"
 import checklistImg from "../../assets/checklist.svg"
+import arrowImg from "../../assets/arrow.svg"
+import settingImg from "../../assets/setting.svg"
+import logoutImg from "../../assets/logout.svg"
 
 export const Sidebar = () => {
+    const [openProfileOptions, setOpenProfileOptions] = useState(false)
+    
+    const handleOpenProfileOptions = () => {
+        setOpenProfileOptions(!openProfileOptions)
+    }
+
     return (
         <Container>
             <Content>
                 <Logo>
                     <img src={logoImg} alt="Logo" />
                     <h3>DailyMirror</h3>
-
-                    {/* <Separator /> */}
                 </Logo>
+
+                <Separator />
 
                 <Profile>
                     <img src={profileImg} alt="Profile Icon" />
                     <p>Klein Moretti</p>
+
+                    <ProfileOptions onClick={handleOpenProfileOptions}>
+                        <img src={arrowImg} alt="Arrow" />
+                        {openProfileOptions && (
+                            <OptionsContainer>
+                                <div>
+                                    <img src={settingImg} alt="Logout" />
+                                    <p>Account Setting</p>
+                                </div>
+
+                                <div>
+                                    <img src={logoutImg} alt="Setting" />
+                                    <p>Logout</p>
+                                </div>
+                            </OptionsContainer>
+                        )}
+                    </ProfileOptions>
                 </Profile>
 
                 <ActionsContainer>

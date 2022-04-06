@@ -7,8 +7,8 @@ import { GlobalStyle } from "./styles/global"
 export const App = () => {
   return (
     <>
-      {/* <Dashboard /> */}
-      <LoginPage />
+      <Dashboard />
+      {/* <LoginPage /> */}
       {/* <SignUpPage /> */}
       <GlobalStyle />
     </>

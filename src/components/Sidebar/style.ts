@@ -20,7 +20,7 @@ export const Content = styled.div`
 `
 
 export const Logo = styled.div`
-   width: 100%;
+   width: 90%;
    height: 8vh;
    display: flex;
    justify-content: space-evenly;
@@ -29,6 +29,7 @@ export const Logo = styled.div`
    h3 {
        font-size: 1.44rem;
        margin-right: 4px;
+       font-weight: 400;
    }
 
    img {
@@ -37,13 +38,16 @@ export const Logo = styled.div`
    }
 `
 export const Separator = styled.hr`
-   width: 80%;
+   width: 90%;
+   margin-top: -8%;
+   border-color: var(--background);
 `
 
 export const Profile = styled.div`
    display: flex;
-   width: 80%;
+   width: 85%;
    height: 6vh;
+   justify-content: space-between;
    align-items: center;
 
    img {
@@ -55,6 +59,56 @@ export const Profile = styled.div`
        margin-left: 5px;
    }
 `
+
+export const ProfileOptions = styled.div`
+   width: 2rem;
+   height: 2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   
+   img {
+       width: 1.7rem;
+       height: 1.7rem;
+   }
+`
+
+export const OptionsContainer = styled.div`
+   background: var(--white);
+   border-radius: 10px;
+   width: 12.5rem;
+   height: 4.8rem;
+   display: flex;
+   justify-content: space-around;
+   flex-direction: column;
+   position: absolute;
+   margin-top: 50%;
+   margin-right: 55%;
+   box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+   color: var(--black);
+
+   div {
+       display: flex;
+       width: 100%;
+       height: 2rem;
+       cursor: pointer;
+       font-size: 0.90rem;
+       align-items: center;
+       margin-top: 6px;
+       padding: 5px;
+
+       :hover {
+           background: var(--background);
+       }
+
+       img {
+           width: 1.3rem;
+           height: 1.3rem;
+       }
+   }
+`
+
 
 export const ActionsContainer = styled.div`
    display: flex;

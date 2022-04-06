@@ -48,12 +48,49 @@ export const ImgContainer = styled.div`
 export const Menu = styled.div`
    width: 2.2rem;
    height: 2.2rem;
+   cursor: pointer;
+   
+   img {
+      width: 1.5rem;
+      height: 1.5rem;
+   }
+`
+
+export const CardOptions = styled.div`
+   background: var(--white);
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   width: 8.8rem;
+   height: 7rem;
+   margin-top: 5px;
+   box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+   border-radius: 10px;
+   will-change: transform;
+   transform: translate3d(-132px, -2px, 0px);
 
    div {
-      border: 2px solid black;
-      width: 5rem;
-      height: 4rem;
-      position: relative;
+      display: flex;
+      color: var(--black);
+      cursor: pointer;
+      font-size: 0.90rem;
+      align-items: center;
+      height: 1.5rem;
+      padding: 15px;
+
+      :hover {
+           background: var(--background);
+       }
+
+      img {
+           width: 1rem;
+           height: 1rem;
+       }
+
+       p, img {
+          margin: 4px;
+       }
    }
 `
 
