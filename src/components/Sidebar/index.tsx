@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMenu } from "../hooks/useMenu";
 
 import {
   ActionsContainer,
@@ -23,12 +23,9 @@ import arrowImg from "../../assets/arrow.svg";
 import settingImg from "../../assets/setting.svg";
 import logoutImg from "../../assets/logout.svg";
 
-export const Sidebar = () => {
-  const [openProfileOptions, setOpenProfileOptions] = useState(false);
 
-  const handleOpenProfileOptions = () => {
-    setOpenProfileOptions(!openProfileOptions);
-  };
+export const Sidebar = () => {
+  const [openProfileOptions, handleOpenProfileOptions] = useMenu()
 
   return (
     <Container>

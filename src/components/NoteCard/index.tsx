@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMenu } from "../hooks/useMenu";
 
 import {
   BottomBar,
@@ -17,12 +17,9 @@ import pencilImg from "../../assets/pencil.svg";
 import viewImg from "../../assets/view.svg";
 
 
-export const NoteCard = () => {
-  const [openCardOptions, setOpenCardOptions] = useState(false);
 
-    const handleOpenCardOptions = () => {
-      setOpenCardOptions(!openCardOptions);
-    };
+export const NoteCard = () => {
+  const [openCardOptions, handleOpenCardOptions] = useMenu()
 
 
   return (
