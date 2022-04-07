@@ -1,12 +1,10 @@
-import { Dashboard } from "./components/Dashboard";
-import { LoginPage } from "./pages/LoginPage";
-import { SignUpPage } from "./pages/SignUpPage";
+import { Routers } from "./routes/Routers";
 import { GlobalStyle } from "./styles/global";
 
 export const App = () => {
   return (
     <>
-      <Dashboard />
+      <Routers />
       {/* <LoginPage /> */}
       {/* <SignUpPage /> */}
       <GlobalStyle />
