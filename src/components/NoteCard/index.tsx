@@ -16,12 +16,14 @@ import binImg from "../../assets/bin.svg";
 import pencilImg from "../../assets/pencil.svg";
 import viewImg from "../../assets/view.svg";
 
+
 export const NoteCard = () => {
   const [openCardOptions, setOpenCardOptions] = useState(false);
 
-  const handleOpenCardOptions = () => {
-    setOpenCardOptions(!openCardOptions);
-  };
+    const handleOpenCardOptions = () => {
+      setOpenCardOptions(!openCardOptions);
+    };
+
 
   return (
     <Container>
