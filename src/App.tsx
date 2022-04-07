@@ -5,8 +5,6 @@ export const App = () => {
   return (
     <>
       <Routers />
-      {/* <LoginPage /> */}
-      {/* <SignUpPage /> */}
       <GlobalStyle />
     </>
   );
