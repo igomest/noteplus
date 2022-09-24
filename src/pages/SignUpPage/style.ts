@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100vw;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const SignUpContainer = styled.div`
   background: var(--white);
@@ -17,7 +17,7 @@ export const SignUpContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-`;
+`
 
 export const Logo = styled.div`
   width: 37%;
@@ -27,10 +27,10 @@ export const Logo = styled.div`
   align-items: center;
 
   h2 {
-    font-family: "Jost", sans-serif;
+    font-family: 'Jost', sans-serif;
     font-weight: 400;
   }
-`;
+`
 
 export const Title = styled.div`
   width: 50%;
@@ -41,13 +41,13 @@ export const Title = styled.div`
   align-items: center;
 
   h2 {
-    font-family: "Jost", sans-serif;
+    font-family: 'Jost', sans-serif;
   }
 
   p {
     color: var(--silver);
   }
-`;
+`
 
 export const UserNameContainer = styled.div`
   width: 90%;
@@ -65,7 +65,7 @@ export const UserNameContainer = styled.div`
     padding: 10px;
     margin: 10px;
   }
-`;
+`
 
 export const AuthenticationContainer = styled.div`
   width: 90%;
@@ -86,7 +86,7 @@ export const AuthenticationContainer = styled.div`
     padding: 10px;
     margin: 10px;
   }
-`;
+`
 
 export const ButtonContainer = styled.div`
   width: 20%;
@@ -107,7 +107,7 @@ export const ButtonContainer = styled.div`
       filter: brightness(0.9);
     }
   }
-`;
+`
 
 export const LoginContainer = styled.div`
   width: 38%;
@@ -131,4 +131,4 @@ export const LoginContainer = styled.div`
       color: var(--blue);
     }
   }
-`;
+`
