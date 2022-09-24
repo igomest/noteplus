@@ -1,13 +1,13 @@
 import { Header } from '../../components/Header'
 import { NoteCard } from '../../components/NoteCard'
 import { Sidebar } from '../../components/Sidebar'
-import { Tags } from '../../components/Tags'
-import { NewNotePage } from '../NewNotePage'
+// import { Tags } from '../../components/Tags'
+// import { NewNotePage } from '../NewNotePage'
 import {
   Container,
   SideBarContainer,
-  NoteContainer,
-  TagsContainer
+  NoteContainer
+  // TagsContainer
 } from './style'
 
 export const HomePage = () => {

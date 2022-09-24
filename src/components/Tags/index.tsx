@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { Container, Icon, ItemContainer, Title } from './style'
 import tagImg from '../../assets/tagImg.svg'
 

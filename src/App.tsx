@@ -1,11 +1,12 @@
-import { Routers } from './routes/Routers'
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './routes/Router'
 import { GlobalStyle } from './styles/global'
 
 export const App = () => {
   return (
-    <>
-      <Routers />
+    <BrowserRouter>
+      <Router />
       <GlobalStyle />
-    </>
+    </BrowserRouter>
   )
 }
