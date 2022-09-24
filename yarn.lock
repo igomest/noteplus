@@ -3655,11 +3655,6 @@ decode-uri-component@^0.2.0:
   resolved "https://registry.npmjs.org/decode-uri-component/-/decode-uri-component-0.2.0.tgz"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
-decoders@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/decoders/-/decoders-2.0.0.tgz#bdbf6cfe89634d18fd8188d12812867979e3df80"
-  integrity sha512-u6BlL3p8pj+pI3b/k+Q2n9KnoJGMFJ1VU7ThdpkvSdQ2z+jEj6SPB0Qx9rdsvCR0mNfJe/jUBeaeRmOhueP3HA==
-
 dedent@^0.7.0:
   version "0.7.0"
   resolved "https://registry.npmjs.org/dedent/-/dedent-0.7.0.tgz"

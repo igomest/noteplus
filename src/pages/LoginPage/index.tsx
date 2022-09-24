@@ -15,7 +15,7 @@ export const LoginPage = () => {
       <LoginContainer>
         <Logo>
           <img src={logoImg} alt="Logo" />
-          <h2>DailyMirror</h2>
+          <h2>NotePlus</h2>
         </Logo>
 
         <Title>

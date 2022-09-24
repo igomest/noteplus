@@ -32,7 +32,7 @@ export const Sidebar = () => {
       <Content>
         <Logo>
           <img src={logoImg} alt="Logo" />
-          <h3>DailyMirror</h3>
+          <h3>NotePlus</h3>
         </Logo>
 
         <Separator />
