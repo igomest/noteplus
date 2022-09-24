@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   border: 1px solid black;
@@ -7,7 +7,7 @@ export const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const LoginContainer = styled.div`
   background: var(--white);
@@ -18,7 +18,7 @@ export const LoginContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-`;
+`
 
 export const Logo = styled.div`
   width: 37%;
@@ -28,10 +28,10 @@ export const Logo = styled.div`
   align-items: center;
 
   h2 {
-    font-family: "Jost", sans-serif;
+    font-family: 'Jost', sans-serif;
     font-weight: 400;
   }
-`;
+`
 
 export const Title = styled.div`
   width: 50%;
@@ -42,13 +42,13 @@ export const Title = styled.div`
   align-items: center;
 
   h2 {
-    font-family: "Jost", sans-serif;
+    font-family: 'Jost', sans-serif;
   }
 
   p {
     color: var(--silver);
   }
-`;
+`
 
 export const InputContainer = styled.div`
   width: 90%;
@@ -66,7 +66,7 @@ export const InputContainer = styled.div`
     background: var(--background);
     padding: 10px;
   }
-`;
+`
 
 export const ButtonContainer = styled.div`
   width: 20%;
@@ -87,7 +87,7 @@ export const ButtonContainer = styled.div`
       filter: brightness(0.9);
     }
   }
-`;
+`
 
 export const SingUpContainer = styled.div`
   width: 50%;
@@ -111,4 +111,4 @@ export const SingUpContainer = styled.div`
       color: var(--blue);
     }
   }
-`;
+`

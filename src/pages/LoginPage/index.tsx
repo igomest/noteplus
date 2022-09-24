@@ -5,9 +5,9 @@ import {
   LoginContainer,
   Logo,
   SingUpContainer,
-  Title,
-} from "./style";
-import logoImg from "../../assets/logo.svg";
+  Title
+} from './style'
+import logoImg from '../../assets/logo.svg'
 
 export const LoginPage = () => {
   return (
@@ -38,5 +38,5 @@ export const LoginPage = () => {
         </SingUpContainer>
       </LoginContainer>
     </Container>
-  );
-};
+  )
+}

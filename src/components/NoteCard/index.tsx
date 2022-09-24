@@ -1,4 +1,4 @@
-import { useMenu } from "../hooks/useMenu";
+import { useMenu } from '../hooks/useMenu'
 
 import {
   BottomBar,
@@ -7,20 +7,17 @@ import {
   ImgContainer,
   Menu,
   NoteContent,
-  TopBar,
-} from "./style";
-import noteImg from "../../assets/note.svg";
-import menuImg from "../../assets/menu.svg";
-import calenderImg from "../../assets/calender.svg";
-import binImg from "../../assets/bin.svg";
-import pencilImg from "../../assets/pencil.svg";
-import viewImg from "../../assets/view.svg";
-
-
+  TopBar
+} from './style'
+import noteImg from '../../assets/note.svg'
+import menuImg from '../../assets/menu.svg'
+import calenderImg from '../../assets/calender.svg'
+import binImg from '../../assets/bin.svg'
+import pencilImg from '../../assets/pencil.svg'
+import viewImg from '../../assets/view.svg'
 
 export const NoteCard = () => {
   const [openCardOptions, handleOpenCardOptions] = useMenu()
-
 
   return (
     <Container>
@@ -66,5 +63,5 @@ export const NoteCard = () => {
         <p>12 Jan 2022</p>
       </BottomBar>
     </Container>
-  );
-};
+  )
+}
