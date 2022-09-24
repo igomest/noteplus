@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
@@ -8,14 +8,14 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-`;
+`
 
 export const SideBarContainer = styled.div`
   height: 100vh;
   width: 15vw;
   margin-left: 40px;
   position: fixed;
-`;
+`
 
 export const NoteContainer = styled.div`
   height: 100vh;
@@ -27,7 +27,7 @@ export const NoteContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-`;
+`
 
 export const TagsContainer = styled.div`
   height: 100vh;
@@ -37,4 +37,4 @@ export const TagsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`

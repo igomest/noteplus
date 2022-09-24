@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 13.5vw;
@@ -8,7 +8,7 @@ export const Container = styled.div`
   margin-left: -5%;
   border-radius: 10px;
   box-shadow: 0 0px 40px rgb(0 0 0 / 5%);
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Content = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-`;
+`
 
 export const Logo = styled.div`
   width: 90%;
@@ -36,12 +36,12 @@ export const Logo = styled.div`
     width: 3.8rem;
     height: 3.8rem;
   }
-`;
+`
 export const Separator = styled.hr`
   width: 90%;
   margin-top: -8%;
   border-color: var(--background);
-`;
+`
 
 export const Profile = styled.div`
   display: flex;
@@ -59,7 +59,7 @@ export const Profile = styled.div`
   img {
     margin-left: 5px;
   }
-`;
+`
 
 export const ProfileOptions = styled.div`
   width: 2rem;
@@ -73,7 +73,7 @@ export const ProfileOptions = styled.div`
     width: 1.7rem;
     height: 1.7rem;
   }
-`;
+`
 
 export const OptionsContainer = styled.div`
   background: var(--white);
@@ -108,7 +108,7 @@ export const OptionsContainer = styled.div`
       height: 1.3rem;
     }
   }
-`;
+`
 
 export const ActionsContainer = styled.div`
   display: flex;
@@ -144,7 +144,7 @@ export const ActionsContainer = styled.div`
       height: 1.2rem;
     }
   }
-`;
+`
 
 export const NotesContainer = styled.div`
   display: flex;
@@ -178,7 +178,7 @@ export const NotesContainer = styled.div`
       }
     }
   }
-`;
+`
 
 export const ImageContainer = styled.div`
   width: 80%;
@@ -203,4 +203,4 @@ export const ImageContainer = styled.div`
     width: 100%;
     height: 100%;
   }
-`;
+`

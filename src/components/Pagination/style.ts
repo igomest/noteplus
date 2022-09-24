@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.footer`
   background: var(--white);
@@ -7,4 +7,4 @@ export const Container = styled.footer`
   display: flex;
   border-radius: 10px;
   margin-top: 20px;
-`;
+`

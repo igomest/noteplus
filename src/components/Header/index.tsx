@@ -1,5 +1,5 @@
-import { Container, HeaderContainer } from "./style";
-import pencilImg from "../../assets/pencil.svg";
+import { Container, HeaderContainer } from './style'
+import pencilImg from '../../assets/pencil.svg'
 
 export const Header = () => {
   return (
@@ -11,5 +11,5 @@ export const Header = () => {
         </button>
       </HeaderContainer>
     </Container>
-  );
-};
+  )
+}

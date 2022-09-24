@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-left: 2rem;
   height: 12vh;
   align-items: center;
-`;
+`
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -35,4 +35,4 @@ export const HeaderContainer = styled.header`
       color: var(--silver);
     }
   }
-`;
+`

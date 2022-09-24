@@ -6,9 +6,9 @@ import {
   Logo,
   SignUpContainer,
   Title,
-  UserNameContainer,
-} from "./style";
-import logoImg from "../../assets/logo.svg";
+  UserNameContainer
+} from './style'
+import logoImg from '../../assets/logo.svg'
 
 export const SignUpPage = () => {
   return (
@@ -44,5 +44,5 @@ export const SignUpPage = () => {
         </LoginContainer>
       </SignUpContainer>
     </Container>
-  );
-};
+  )
+}

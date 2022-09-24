@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   background-color: #ffffff;
@@ -15,7 +15,7 @@ export const Container = styled.div`
   :hover {
     background-color: var(--background);
   }
-`;
+`
 
 export const TopBar = styled.div`
   width: 100%;
@@ -27,7 +27,7 @@ export const TopBar = styled.div`
   select {
     border: none;
   }
-`;
+`
 
 export const ImgContainer = styled.div`
   border: 1px solid var(--black);
@@ -42,7 +42,7 @@ export const ImgContainer = styled.div`
     width: 1.5rem;
     height: 1.5rem;
   }
-`;
+`
 
 export const Menu = styled.div`
   width: 2.2rem;
@@ -53,7 +53,7 @@ export const Menu = styled.div`
     width: 1.5rem;
     height: 1.5rem;
   }
-`;
+`
 
 export const CardOptions = styled.div`
   background: var(--white);
@@ -92,7 +92,7 @@ export const CardOptions = styled.div`
       margin: 4px;
     }
   }
-`;
+`
 
 export const NoteContent = styled.div`
   display: flex;
@@ -107,7 +107,7 @@ export const NoteContent = styled.div`
     color: var(--silver);
     margin-bottom: 10px;
   }
-`;
+`
 
 export const BottomBar = styled.div`
   width: 8rem;
@@ -120,4 +120,4 @@ export const BottomBar = styled.div`
     font-weight: bold;
     font-size: 0.95rem;
   }
-`;
+`
