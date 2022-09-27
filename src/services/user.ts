@@ -1,34 +1,39 @@
-import { goToHomePage } from '../routes/coordinator'
 import { api } from './api'
 
 type UserTypes = {
-  body: string | number
+  form: {
+    name: string
+    password: string
+    email: string
+    age: number
+  }
   clear: () => void
-  history: Array<string>
+  navigate: (url: string) => void
 }
 
-export const login = ({ body, clear, history }: UserTypes) => {
+export const login = ({ form, clear, navigate }: UserTypes) => {
   api
-    .post('/user/login', body)
+    .post('/user/login', form)
     .then((res) => {
       localStorage.setItem('token', res.data.token)
       clear()
-      goToHomePage(history)
+      navigate('/home')
     })
     .catch((err) => {
       alert(err)
     })
 }
 
-export const signUp = ({ body, clear, history }: UserTypes) => {
+export const signUp = ({ form, clear, navigate }: UserTypes) => {
   api
-    .post('/user/login', body)
+    .post('/user/register', form)
     .then((res) => {
       localStorage.setItem('token', res.data.token)
       clear()
-      goToHomePage(history)
+      navigate('/home')
+      console.log(res.data)
     })
     .catch((err) => {
-      alert(err)
+      console.log(err.data)
     })
 }

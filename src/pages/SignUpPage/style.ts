@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 `
 
-export const SignUpContainer = styled.div`
+export const SignUpContainer = styled.form`
   background: var(--white);
   border-radius: 10px;
   width: 27vw;
