@@ -5,7 +5,7 @@ type UserTypes = {
     name: string
     password: string
     email: string
-    age: number
+    age?: number
   }
   clear: () => void
   navigate: (url: string) => void
@@ -18,9 +18,10 @@ export const login = ({ form, clear, navigate }: UserTypes) => {
       localStorage.setItem('token', res.data.token)
       clear()
       navigate('/home')
+      console.log(res.data)
     })
     .catch((err) => {
-      alert(err)
+      console.log(err)
     })
 }
 

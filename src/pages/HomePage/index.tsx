@@ -1,6 +1,7 @@
 import { Header } from '../../components/Header'
 import { NoteCard } from '../../components/NoteCard'
 import { Sidebar } from '../../components/Sidebar'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 // import { Tags } from '../../components/Tags'
 // import { NewNotePage } from '../NewNotePage'
 import {
@@ -11,6 +12,7 @@ import {
 } from './style'
 
 export const HomePage = () => {
+  useProtectedPage()
   return (
     <>
       <SideBarContainer>
