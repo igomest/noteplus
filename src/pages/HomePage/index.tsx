@@ -11,8 +11,6 @@ import {
 } from './style'
 
 export const HomePage = () => {
-  // const { notes, tags } = useStore
-
   return (
     <>
       <SideBarContainer>
