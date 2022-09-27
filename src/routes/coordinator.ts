@@ -1,3 +1,3 @@
-export const goToHomePage = (history: Array<string>) => {
-  history.push('/home')
+export const goToHomePage = (navigate: Array<string>) => {
+  navigate.push('/home')
 }

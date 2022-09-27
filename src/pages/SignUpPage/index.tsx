@@ -9,8 +9,16 @@ import {
   UserNameContainer
 } from './style'
 import logoImg from '../../assets/logo.svg'
+import { useNavigate } from 'react-router-dom'
+import { useForm } from '../../hooks/useForm'
 
 export const SignUpPage = () => {
+  const navigate = useNavigate()
+  const { form, handleInputChange, clear } = useForm({
+    name: '',
+    pass
+  })
+
   return (
     <Container>
       <SignUpContainer>
