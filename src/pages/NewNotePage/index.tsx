@@ -24,8 +24,10 @@ import { Sidebar } from '../../components/Sidebar'
 import noteImg from '../../assets/note.svg'
 import menuImg from '../../assets/menu.svg'
 import calenderImg from '../../assets/calender.svg'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 export const NewNotePage = () => {
+  useProtectedPage()
   return (
     <>
       <SideBarContainer>
