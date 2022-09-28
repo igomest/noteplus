@@ -64,7 +64,7 @@ export const LoginPage = () => {
 
         <SingUpContainer>
           <p>Não tem uma conta?</p>
-          <button>Inscreva-se!</button>
+          <button onClick={() => navigate('/cadastro')}>Inscreva-se!</button>
         </SingUpContainer>
       </LoginContainer>
     </Container>

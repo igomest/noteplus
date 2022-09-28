@@ -83,7 +83,7 @@ export const SignUpPage = () => {
 
         <LoginContainer>
           <p>Já tem uma conta?</p>
-          <button>Entrar</button>
+          <button onClick={() => navigate('/')}>Entrar</button>
         </LoginContainer>
       </SignUpContainer>
     </Container>
