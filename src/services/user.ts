@@ -1,7 +1,7 @@
 import { api } from './api'
 
 type UserTypes = {
-  form: {
+  form?: {
     name: string
     password: string
     email: string
@@ -11,8 +11,12 @@ type UserTypes = {
   navigate: (url: string) => void
 }
 
-export const login = ({ form, clear, navigate }: UserTypes) => {
-  api
+type LogoutTypes = {
+  navigate: (url: string) => void
+}
+
+export const login = async ({ form, clear, navigate }: UserTypes) => {
+  await api
     .post('/user/login', form)
     .then((res) => {
       localStorage.setItem('token', res.data.token)
@@ -36,5 +40,18 @@ export const signUp = ({ form, clear, navigate }: UserTypes) => {
     })
     .catch((err) => {
       console.log(err.data)
+    })
+}
+
+export const logout = ({ navigate }: LogoutTypes) => {
+  api
+    .post('/user/logout')
+    .then((res) => {
+      localStorage.removeItem('token')
+      navigate('/')
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err.response.data)
     })
 }

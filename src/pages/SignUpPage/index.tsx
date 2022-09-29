@@ -1,3 +1,9 @@
+import { SyntheticEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useForm } from '../../hooks/useForm'
+
+import { signUp } from '../../services/user'
+
 import {
   AuthenticationContainer,
   ButtonContainer,
@@ -8,11 +14,8 @@ import {
   Title,
   UserNameContainer
 } from './style'
+
 import logoImg from '../../assets/logo.svg'
-import { useNavigate } from 'react-router-dom'
-import { useForm } from '../../hooks/useForm'
-import { SyntheticEvent } from 'react'
-import { signUp } from '../../services/user'
 
 export const SignUpPage = () => {
   const navigate = useNavigate()
@@ -50,6 +53,10 @@ export const SignUpPage = () => {
             name={'name'}
             value={form.name}
             onChange={handleInputChange}
+            min={4}
+            required
+            title="Insira seu nome"
+            pattern="\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+"
           />
           <input
             type="text"
@@ -57,6 +64,8 @@ export const SignUpPage = () => {
             name={'age'}
             value={form.age}
             onChange={handleInputChange}
+            required
+            min={2}
           />
         </UserNameContainer>
 
@@ -67,6 +76,8 @@ export const SignUpPage = () => {
             name={'email'}
             value={form.email}
             onChange={handleInputChange}
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title="Insira o seu e-mail"
           />
           <input
             type="password"
@@ -74,6 +85,9 @@ export const SignUpPage = () => {
             name={'password'}
             value={form.password}
             onChange={handleInputChange}
+            pattern="a-zA-Z]\w{3,14}$"
+            title="Insira sua senha"
+            min={8}
           />
         </AuthenticationContainer>
 

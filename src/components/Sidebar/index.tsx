@@ -22,9 +22,17 @@ import checklistImg from '../../assets/checklist.svg'
 import arrowImg from '../../assets/arrow.svg'
 import settingImg from '../../assets/setting.svg'
 import logoutImg from '../../assets/logout.svg'
+import { logout } from '../../services/user'
+import { useNavigate } from 'react-router-dom'
+import { useForm } from '../../hooks/useForm'
 
 export const Sidebar = () => {
   const [openProfileOptions, handleOpenProfileOptions] = useMenu()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout({ navigate })
+  }
 
   return (
     <Container>
@@ -49,7 +57,7 @@ export const Sidebar = () => {
                   <p>Account Setting</p>
                 </div>
 
-                <div>
+                <div onClick={() => handleLogout()}>
                   <img src={logoutImg} alt="Setting" />
                   <p>Logout</p>
                 </div>
