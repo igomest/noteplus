@@ -15,12 +15,19 @@ import calenderImg from '../../assets/calender.svg'
 import binImg from '../../assets/bin.svg'
 import pencilImg from '../../assets/pencil.svg'
 import viewImg from '../../assets/view.svg'
+import { handlePrefetchTask } from '../../services/prefetchTask'
 
-export const NoteCard = () => {
+type TaskProps = {
+  description: string
+  createdAt: string
+  id: string
+}
+
+export const NoteCard = ({ description, createdAt, id }: TaskProps) => {
   const [openCardOptions, handleOpenCardOptions] = useMenu()
 
   return (
-    <Container>
+    <Container onMouseEnter={() => handlePrefetchTask(id)}>
       <TopBar>
         <ImgContainer>
           <img src={noteImg} alt="Note" />
@@ -51,16 +58,12 @@ export const NoteCard = () => {
       </TopBar>
 
       <NoteContent>
-        <h3>Plano da Semana</h3>
-        <p>
-          Virtual Digital Marketing Course every week on Monday, Wednesday and
-          Saturday.Virtual Digital Marketing Course every week on Monday...
-        </p>
+        <p>{description}</p>
       </NoteContent>
 
       <BottomBar>
         <img src={calenderImg} alt="Calender Icon" />
-        <p>12 Jan 2022</p>
+        <p>{createdAt}</p>
       </BottomBar>
     </Container>
   )

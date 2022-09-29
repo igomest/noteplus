@@ -25,9 +25,25 @@ import noteImg from '../../assets/note.svg'
 import menuImg from '../../assets/menu.svg'
 import calenderImg from '../../assets/calender.svg'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
+import { useNavigate } from 'react-router-dom'
+import { ChangeEvent, useState } from 'react'
+import { useMutation } from 'react-query'
+import { api } from '../../services/api'
+import { useForm } from '../../hooks/useForm'
 
 export const NewNotePage = () => {
   useProtectedPage()
+  // const { form } = useForm({ description: '' })
+  const createNote = useMutation(async () => {
+    const response = await api.post('/task')
+  })
+  const navigate = useNavigate()
+  const [keyboard, setKeyboard] = useState('')
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setKeyboard(event.target.value)
+  }
+
   return (
     <>
       <SideBarContainer>
@@ -38,12 +54,7 @@ export const NewNotePage = () => {
         <Header />
         <NewNoteContainer>
           <Content>
-            <Title>
-              <p>Título</p>
-              <input type="text" placeholder="Nota de Exemplo" />
-            </Title>
-
-            <Description>
+            <Description onChange={handleChange}>
               <p>Descrição</p>
               <textarea />
             </Description>
@@ -59,7 +70,9 @@ export const NewNotePage = () => {
             </TagContainer>
 
             <ButtonContainer>
-              <CancelButton>Cancelar</CancelButton>
+              <CancelButton onClick={() => navigate('/home')}>
+                Cancelar
+              </CancelButton>
               <SaveButton>Salvar</SaveButton>
             </ButtonContainer>
           </Content>
@@ -76,16 +89,10 @@ export const NewNotePage = () => {
                 </Menu>
               </TopBar>
 
-              <NoteContent>
+              <NoteContent onChange={handleChange}>
                 <h3>Nota de Exemplo</h3>
 
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
-                </p>
+                <p>{keyboard}</p>
               </NoteContent>
 
               <BottomBar>

@@ -2,40 +2,71 @@ import { Header } from '../../components/Header'
 import { NoteCard } from '../../components/NoteCard'
 import { Sidebar } from '../../components/Sidebar'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
-// import { Tags } from '../../components/Tags'
-// import { NewNotePage } from '../NewNotePage'
+import { useTasks } from '../../hooks/useTasks'
+import { api } from '../../services/api'
+import { queryClient } from '../../services/queryClient'
+
 import {
   Container,
   SideBarContainer,
-  NoteContainer
+  NoteContainer,
+  Note,
+  NoteTitle,
+  Title
   // TagsContainer
 } from './style'
 
+type Task = {
+  id: string
+  description: string
+  createdAt: string
+}
+
 export const HomePage = () => {
   useProtectedPage()
+  const { data, isLoading, isFetching, isError } = useTasks()
+
   return (
     <>
       <SideBarContainer>
         <Sidebar />
       </SideBarContainer>
 
-      {/* <TagsContainer>
-        <Tags />
-      </TagsContainer> */}
-
       <Container>
         <Header />
 
         <NoteContainer>
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
+          <NoteTitle>
+            <Title>
+              <h1>Suas notas</h1>
+              {!isLoading && isFetching && <p>Loading...</p>}
+            </Title>
+          </NoteTitle>
+
+          <Note>
+            {isLoading ? (
+              <h2>Loading...</h2>
+            ) : isError ? (
+              <h2>Aconteceu um erro...</h2>
+            ) : (
+              <>
+                {data.length > 0 ? (
+                  <>
+                    {data?.map((task: Task) => (
+                      <NoteCard
+                        key={task.id}
+                        id={task.id}
+                        description={task.description}
+                        createdAt={task.createdAt}
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <p>Nenhuma nota encontrada</p>
+                )}
+              </>
+            )}
+          </Note>
         </NoteContainer>
       </Container>
     </>

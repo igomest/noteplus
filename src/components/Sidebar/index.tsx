@@ -25,6 +25,7 @@ import logoutImg from '../../assets/logout.svg'
 import { logout } from '../../services/user'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 export const Sidebar = () => {
   const [openProfileOptions, handleOpenProfileOptions] = useMenu()
@@ -46,7 +47,7 @@ export const Sidebar = () => {
 
         <Profile>
           <img src={profileImg} alt="Profile Icon" />
-          <p>Klein Moretti</p>
+          <p>Ivan Gomes</p>
 
           <ProfileOptions onClick={handleOpenProfileOptions}>
             <img src={arrowImg} alt="Arrow" />
@@ -69,7 +70,7 @@ export const Sidebar = () => {
         <ActionsContainer>
           <input type="text" placeholder="Search" />
 
-          <button type="button">
+          <button type="button" onClick={() => navigate('/criar-nota')}>
             <img src={moreImg} alt="More Icon" />
             Add Nova
           </button>
