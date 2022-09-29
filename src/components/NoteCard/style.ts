@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 24vw;
   height: 28vh;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  margin: 1rem;
+  margin: 0.9rem;
   padding: 20px;
   border-radius: 10px;
   border-bottom: 5px solid var(--black);
@@ -110,7 +110,7 @@ export const NoteContent = styled.div`
 `
 
 export const BottomBar = styled.div`
-  width: 8rem;
+  width: 12rem;
   height: 2rem;
   display: flex;
   justify-content: space-evenly;

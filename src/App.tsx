@@ -1,9 +1,9 @@
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './routes/Router'
+import { queryClient } from './services/queryClient'
 import { GlobalStyle } from './styles/global'
-
-const queryClient = new QueryClient()
 
 export const App = () => {
   return (
@@ -12,6 +12,8 @@ export const App = () => {
         <Router />
         <GlobalStyle />
       </BrowserRouter>
+
+      <ReactQueryDevtools />
     </QueryClientProvider>
   )
 }

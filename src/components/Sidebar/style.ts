@@ -47,7 +47,7 @@ export const Profile = styled.div`
   display: flex;
   width: 85%;
   height: 6vh;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   img {
