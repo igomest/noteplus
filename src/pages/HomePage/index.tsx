@@ -50,20 +50,14 @@ export const HomePage = () => {
               <h2>Aconteceu um erro...</h2>
             ) : (
               <>
-                {data.length > 0 ? (
-                  <>
-                    {data?.map((task: Task) => (
-                      <NoteCard
-                        key={task.id}
-                        id={task.id}
-                        description={task.description}
-                        createdAt={task.createdAt}
-                      />
-                    ))}
-                  </>
-                ) : (
-                  <p>Nenhuma nota encontrada</p>
-                )}
+                {data?.map((task: Task) => (
+                  <NoteCard
+                    key={task.id}
+                    id={task.id}
+                    description={task.description}
+                    createdAt={task.createdAt}
+                  />
+                ))}
               </>
             )}
           </Note>

@@ -16,42 +16,42 @@ type LogoutTypes = {
 }
 
 export const login = async ({ form, clear, navigate }: UserTypes) => {
-  await api
-    .post('/user/login', form)
-    .then((res) => {
-      localStorage.setItem('token', res.data.token)
-      clear()
-      navigate('/home')
-      console.log(res.data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  try {
+    const response = await api.post('/user/login', form)
+    localStorage.setItem('token', response.data.token)
+    clear()
+    navigate('/home')
+    console.log(response.data)
+
+    return response
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-export const signUp = ({ form, clear, navigate }: UserTypes) => {
-  api
-    .post('/user/register', form)
-    .then((res) => {
-      localStorage.setItem('token', res.data.token)
-      clear()
-      navigate('/home')
-      console.log(res.data)
-    })
-    .catch((err) => {
-      console.log(err.data)
-    })
+export const signUp = async ({ form, clear, navigate }: UserTypes) => {
+  try {
+    const response = await api.post('/user/register', form)
+    localStorage.setItem('token', response.data.token)
+    clear()
+    navigate('/home')
+    console.log(response.data)
+
+    return response
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-export const logout = ({ navigate }: LogoutTypes) => {
-  api
-    .post('/user/logout')
-    .then((res) => {
-      localStorage.removeItem('token')
-      navigate('/')
-      console.log(res.data)
-    })
-    .catch((err) => {
-      console.log(err.response.data)
-    })
+export const logout = async ({ navigate }: LogoutTypes) => {
+  try {
+    const response = await api.post('/user/logout')
+    localStorage.removeItem('token')
+    navigate('/')
+    console.log(response.data)
+
+    return response
+  } catch (err) {
+    console.log(err)
+  }
 }
