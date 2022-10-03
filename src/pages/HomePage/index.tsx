@@ -3,8 +3,6 @@ import { NoteCard } from '../../components/NoteCard'
 import { Sidebar } from '../../components/Sidebar'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { useTasks } from '../../hooks/useTasks'
-import { api } from '../../services/api'
-import { queryClient } from '../../services/queryClient'
 
 import {
   Container,
@@ -25,6 +23,9 @@ type Task = {
 export const HomePage = () => {
   useProtectedPage()
   const { data, isLoading, isFetching, isError } = useTasks()
+
+  console.log({ isLoading })
+  console.log({ data })
 
   return (
     <>

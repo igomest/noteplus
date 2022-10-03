@@ -5,6 +5,10 @@ import { Router } from './routes/Router'
 import { queryClient } from './services/queryClient'
 import { GlobalStyle } from './styles/global'
 
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
+import { useEffect } from 'react'
+
 export const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
@@ -14,6 +18,7 @@ export const App = () => {
       </BrowserRouter>
 
       <ReactQueryDevtools />
+      <ToastContainer />
     </QueryClientProvider>
   )
 }

@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 import { api } from './api'
 
 type UserTypes = {
@@ -9,28 +10,51 @@ type UserTypes = {
   }
   clear: () => void
   navigate: (url: string) => void
+  setIsLoading: (prevState: boolean) => void
 }
 
 type LogoutTypes = {
   navigate: (url: string) => void
 }
 
-export const login = async ({ form, clear, navigate }: UserTypes) => {
+export const login = async ({
+  form,
+  clear,
+  navigate,
+  setIsLoading
+}: UserTypes) => {
   try {
+    setIsLoading(true)
     const response = await api.post('/user/login', form)
     localStorage.setItem('token', response.data.token)
     clear()
+    setIsLoading(false)
     navigate('/home')
     console.log(response.data)
 
     return response
   } catch (err) {
-    console.log(err)
+    setIsLoading(false)
+    toast.error('🦄 Email ou senha incorreta!', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
   }
 }
 
-export const signUp = async ({ form, clear, navigate }: UserTypes) => {
+export const signUp = async ({
+  form,
+  clear,
+  navigate,
+  setIsLoading
+}: UserTypes) => {
   try {
+    setIsLoading(true)
     const response = await api.post('/user/register', form)
     localStorage.setItem('token', response.data.token)
     clear()
@@ -39,7 +63,16 @@ export const signUp = async ({ form, clear, navigate }: UserTypes) => {
 
     return response
   } catch (err) {
-    console.log(err)
+    setIsLoading(false)
+    toast.error('🦄 Ocorreu um erro, tente novamente mais tarde!', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
   }
 }
 

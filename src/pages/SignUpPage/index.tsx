@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 
@@ -16,21 +16,23 @@ import {
 } from './style'
 
 import logoImg from '../../assets/logo.svg'
+import loadingImg from '../../assets/loading.svg'
+import { Loading } from '../LoginPage/style'
 
 export const SignUpPage = () => {
   const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
   const { form, handleInputChange, clear } = useForm({
     initialState: {
       name: '',
       password: '',
-      email: '',
-      age: 0
+      email: ''
     }
   })
 
   const onSubmitForm = (event: SyntheticEvent) => {
     event.preventDefault()
-    signUp({ form, clear, navigate })
+    signUp({ form, clear, navigate, setIsLoading })
   }
 
   return (
@@ -92,7 +94,13 @@ export const SignUpPage = () => {
         </AuthenticationContainer>
 
         <ButtonContainer>
-          <button type="submit">Inscrever-se</button>
+          <button type="submit">
+            {isLoading ? (
+              <Loading src={loadingImg} alt="Carregando" />
+            ) : (
+              <>Entrar</>
+            )}
+          </button>
         </ButtonContainer>
 
         <LoginContainer>

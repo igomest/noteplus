@@ -82,11 +82,21 @@ export const ButtonContainer = styled.div`
     height: 100%;
     background: var(--black);
     color: var(--white);
+    text-align: center;
 
     &:hover {
       filter: brightness(0.9);
     }
+
+    img {
+      width: 1rem;
+      height: 1rem;
+    }
   }
+`
+export const Loading = styled.img`
+  width: 1rem;
+  height: 1rem;
 `
 
 export const SingUpContainer = styled.div`
