@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-type UseFormTypes = {
+export type UseFormTypes = {
   initialState: {
     [key: string]: string | number
   }

@@ -10,7 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
 `
 
-export const NewNoteContainer = styled.div`
+export const NewNoteContainer = styled.form`
   background: var(--white);
   border-radius: 10px;
   display: flex;
