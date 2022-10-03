@@ -2,10 +2,7 @@ import { useState } from 'react'
 
 type UseFormTypes = {
   initialState: {
-    name: string
-    email: string
-    password: string
-    age?: number
+    [key: string]: string | number
   }
 }
 

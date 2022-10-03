@@ -4,10 +4,7 @@ import { queryClient } from './queryClient'
 
 type UserTypes = {
   form?: {
-    name: string
-    password: string
-    email: string
-    age?: number
+    [key: string]: string | number
   }
   clear: () => void
   navigate: (url: string) => void
