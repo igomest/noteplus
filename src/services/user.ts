@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify'
 import { api } from './api'
+import { queryClient } from './queryClient'
 
 type UserTypes = {
   form?: {
@@ -26,6 +27,7 @@ export const login = async ({
   try {
     setIsLoading(true)
     const response = await api.post('/user/login', form)
+    api.defaults.headers.common.Authorization = response.data.token
     localStorage.setItem('token', response.data.token)
     clear()
     setIsLoading(false)
@@ -81,6 +83,7 @@ export const logout = async ({ navigate }: LogoutTypes) => {
     const response = await api.post('/user/logout')
     localStorage.removeItem('token')
     navigate('/')
+    queryClient.removeQueries()
     console.log(response.data)
 
     return response

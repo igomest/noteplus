@@ -13,7 +13,7 @@ export const useTasks = () => {
     async () => {
       const { data } = await api.get('/task')
 
-      const tasks = data?.data.map((task: Task) => {
+      const tasks = data?.data?.map((task: Task) => {
         return {
           id: task._id,
           description: task.description,
@@ -24,6 +24,7 @@ export const useTasks = () => {
           })
         }
       })
+      console.log({ tasks })
       return tasks
     },
     {

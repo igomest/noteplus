@@ -22,7 +22,7 @@ type Task = {
 
 export const HomePage = () => {
   useProtectedPage()
-  const { data, isLoading, isFetching, isError } = useTasks()
+  const { data, isLoading, isFetching, error } = useTasks()
 
   console.log({ isLoading })
   console.log({ data })
@@ -47,7 +47,7 @@ export const HomePage = () => {
           <Note>
             {isLoading ? (
               <h2>Loading...</h2>
-            ) : isError ? (
+            ) : error ? (
               <h2>Aconteceu um erro...</h2>
             ) : (
               <>
