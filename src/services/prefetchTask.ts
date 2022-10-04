@@ -13,8 +13,6 @@ export const handlePrefetchTask = async (taskId: string) => {
         api.defaults.headers.common.Authorization = token
       }
 
-      console.log(response.data)
-
       return await response.data
     },
     {

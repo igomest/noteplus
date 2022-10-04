@@ -1,4 +1,10 @@
+import { useState } from 'react'
+import { useMutation } from 'react-query'
 import { useMenu } from '../../hooks/useMenu'
+
+import { api } from '../../services/api'
+import { queryClient } from '../../services/queryClient'
+import { handlePrefetchTask } from '../../services/prefetchTask'
 
 import {
   BottomBar,
@@ -9,22 +15,59 @@ import {
   NoteContent,
   TopBar
 } from './style'
+
 import noteImg from '../../assets/note.svg'
 import menuImg from '../../assets/menu.svg'
 import calenderImg from '../../assets/calender.svg'
 import binImg from '../../assets/bin.svg'
 import pencilImg from '../../assets/pencil.svg'
 import viewImg from '../../assets/view.svg'
-import { handlePrefetchTask } from '../../services/prefetchTask'
+
+import { toast } from 'react-toastify'
 
 type TaskProps = {
   description: string
   createdAt: string
   id: string
+  onOpenUpdateModal: () => void
 }
 
-export const NoteCard = ({ description, createdAt, id }: TaskProps) => {
+export const NoteCard = ({
+  description,
+  createdAt,
+  id,
+  onOpenUpdateModal
+}: TaskProps) => {
   const [openCardOptions, handleOpenCardOptions] = useMenu()
+
+  const deleteNote = useMutation(
+    async (id: string) => {
+      const response = await api.delete(`/task/${id}`)
+
+      console.log(response.data)
+
+      return response.data
+    },
+    {
+      onSuccess() {
+        queryClient.invalidateQueries('task')
+        toast.success('🦄 Sua nota foi deletada com sucesso!', {
+          position: 'top-center',
+          autoClose: 5000
+        })
+      },
+      onError() {
+        toast.error('🦄 Ocorreu um erro, tente novamente mais tarde!', {
+          position: 'top-center',
+          autoClose: 5000
+        })
+      }
+    }
+  )
+
+  const handleDeleteNote = async () => {
+    await deleteNote.mutateAsync(id)
+  }
 
   return (
     <Container onMouseEnter={() => handlePrefetchTask(id)}>
@@ -43,12 +86,12 @@ export const NoteCard = ({ description, createdAt, id }: TaskProps) => {
                 <p>Visualizar</p>
               </div>
 
-              <div>
+              <div onClick={onOpenUpdateModal}>
                 <img src={pencilImg} alt="Pencil" />
                 <p>Editar</p>
               </div>
 
-              <div>
+              <div onClick={() => handleDeleteNote()}>
                 <img src={binImg} alt="Bin" />
                 <p>Deletar</p>
               </div>
