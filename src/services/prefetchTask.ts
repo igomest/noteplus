@@ -9,6 +9,8 @@ export const handlePrefetchTask = async (taskId: string) => {
     async () => {
       const response = await api.get(`task/${taskId}`)
 
+      console.log(response.data)
+
       if (token) {
         api.defaults.headers.common.Authorization = token
       }

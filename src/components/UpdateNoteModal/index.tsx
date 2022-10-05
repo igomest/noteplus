@@ -1,36 +1,34 @@
-import { id } from 'date-fns/locale'
-import { SyntheticEvent } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import Modal from 'react-modal'
 import { useMutation } from 'react-query'
 import ReactQuill from 'react-quill'
 import { toast } from 'react-toastify'
 import { useForm } from '../../hooks/useForm'
 import { api } from '../../services/api'
+import { handlePrefetchTask } from '../../services/prefetchTask'
 import { queryClient } from '../../services/queryClient'
+import { modules } from '../../utils/modules'
 import { ButtonContainer, CancelButton, SaveButton } from './styles'
 
 type UpdateNoteModalProps = {
   isOpen: boolean
   onRequestClose: () => void
+  id: string
 }
 
 type UpdateNoteData = {
+  id: string
   form?: { [key: string]: string | number }
 }
 
-const modules = {
-  toolbar: [
-    [{ font: [] }],
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    ['bold', 'italic', 'underline'],
-    ['blockquote', 'code-block'],
-    [{ list: 'ordered' }, { list: 'bullet' }]
-  ]
+type Index = {
+  id: string
 }
 
 export const UpdateNoteModal = ({
   isOpen,
-  onRequestClose
+  onRequestClose,
+  id
 }: UpdateNoteModalProps) => {
   const { form, handleInputChange } = useForm({
     initialState: {
@@ -38,8 +36,11 @@ export const UpdateNoteModal = ({
     }
   })
 
+  handlePrefetchTask(id)
+  console.log(handlePrefetchTask)
+
   const updateNote = useMutation(
-    async (id: string, form: UpdateNoteData) => {
+    async ({ id, form }: UpdateNoteData) => {
       const response = await api.put(`/task/${id}`, form)
 
       const token = localStorage.getItem('token')
@@ -68,9 +69,8 @@ export const UpdateNoteModal = ({
     }
   )
 
-  const handleSubmit = async (event: any) => {
-    event.preventDefault()
-    await updateNote.mutateAsync(id, form)
+  const handleUpdateNote = async () => {
+    await updateNote.mutateAsync({ id, form })
   }
 
   return (
@@ -81,12 +81,20 @@ export const UpdateNoteModal = ({
       overlayClassName="react-modal-overlay"
     >
       <h2>Editar</h2>
-      <ReactQuill
+      {/* <ReactQuill
         modules={modules}
         theme="snow"
         className="toolbar"
+        value={`${form.description}`}
         onChange={handleInputChange}
-      />
+      /> */}
+      <textarea
+        name="description"
+        value={form.description}
+        onChange={handleInputChange}
+      >
+        jkdfhdjsd
+      </textarea>
 
       <ButtonContainer>
         <div onClick={onRequestClose}>
@@ -94,7 +102,7 @@ export const UpdateNoteModal = ({
         </div>
 
         <div>
-          <SaveButton onClick={() => handleSubmit(id)}>Salvar</SaveButton>
+          <SaveButton onClick={() => handleUpdateNote()}>Salvar</SaveButton>
         </div>
       </ButtonContainer>
     </Modal>

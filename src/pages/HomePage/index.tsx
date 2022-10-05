@@ -25,18 +25,6 @@ type Task = {
 export const HomePage = () => {
   useProtectedPage()
   const { data, isLoading, isFetching, error } = useTasks()
-  const [isUpdateNoteModalOpen, setIsUpdateNoteModalOpen] = useState(false)
-
-  const handleOpenUpdateNoteModal = () => {
-    setIsUpdateNoteModalOpen(true)
-  }
-
-  const handleCloseUpdateNoteModal = () => {
-    setIsUpdateNoteModalOpen(false)
-  }
-
-  console.log({ isLoading })
-  console.log({ data })
 
   return (
     <>
@@ -46,11 +34,6 @@ export const HomePage = () => {
 
       <Container>
         <Header />
-
-        <UpdateNoteModal
-          isOpen={isUpdateNoteModalOpen}
-          onRequestClose={handleCloseUpdateNoteModal}
-        />
 
         <NoteContainer>
           <NoteTitle>
@@ -73,7 +56,7 @@ export const HomePage = () => {
                     id={task.id}
                     description={task.description}
                     createdAt={task.createdAt}
-                    onOpenUpdateModal={handleOpenUpdateNoteModal}
+                    // onOpenUpdateModal={handleOpenUpdateNoteModal}
                   />
                 ))}
               </>

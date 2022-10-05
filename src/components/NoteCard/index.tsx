@@ -24,21 +24,26 @@ import pencilImg from '../../assets/pencil.svg'
 import viewImg from '../../assets/view.svg'
 
 import { toast } from 'react-toastify'
+import { UpdateNoteModal } from '../UpdateNoteModal'
 
 type TaskProps = {
   description: string
   createdAt: string
   id: string
-  onOpenUpdateModal: () => void
+  // onOpenUpdateModal: () => void
 }
 
-export const NoteCard = ({
-  description,
-  createdAt,
-  id,
-  onOpenUpdateModal
-}: TaskProps) => {
+export const NoteCard = ({ description, createdAt, id }: TaskProps) => {
   const [openCardOptions, handleOpenCardOptions] = useMenu()
+  const [isUpdateNoteModalOpen, setIsUpdateNoteModalOpen] = useState(false)
+
+  const handleCloseUpdateNoteModal = () => {
+    setIsUpdateNoteModalOpen(false)
+  }
+
+  const handleOpenUpdateNoteModal = () => {
+    setIsUpdateNoteModalOpen(true)
+  }
 
   const deleteNote = useMutation(
     async (id: string) => {
@@ -70,44 +75,52 @@ export const NoteCard = ({
   }
 
   return (
-    <Container onMouseEnter={() => handlePrefetchTask(id)}>
-      <TopBar>
-        <ImgContainer>
-          <img src={noteImg} alt="Note" />
-        </ImgContainer>
+    <>
+      <Container onMouseEnter={() => handlePrefetchTask(id)}>
+        <TopBar>
+          <ImgContainer>
+            <img src={noteImg} alt="Note" />
+          </ImgContainer>
 
-        <Menu onClick={handleOpenCardOptions}>
-          <img src={menuImg} alt="Menu" />
+          <Menu onClick={handleOpenCardOptions}>
+            <img src={menuImg} alt="Menu" />
 
-          {openCardOptions && (
-            <CardOptions>
-              <div>
-                <img src={viewImg} alt="View" />
-                <p>Visualizar</p>
-              </div>
+            {openCardOptions && (
+              <CardOptions>
+                <div>
+                  <img src={viewImg} alt="View" />
+                  <p>Visualizar</p>
+                </div>
 
-              <div onClick={onOpenUpdateModal}>
-                <img src={pencilImg} alt="Pencil" />
-                <p>Editar</p>
-              </div>
+                <div onClick={() => handleOpenUpdateNoteModal()}>
+                  <img src={pencilImg} alt="Pencil" />
+                  <p>Editar</p>
+                </div>
 
-              <div onClick={() => handleDeleteNote()}>
-                <img src={binImg} alt="Bin" />
-                <p>Deletar</p>
-              </div>
-            </CardOptions>
-          )}
-        </Menu>
-      </TopBar>
+                <div onClick={() => handleDeleteNote()}>
+                  <img src={binImg} alt="Bin" />
+                  <p>Deletar</p>
+                </div>
+              </CardOptions>
+            )}
+          </Menu>
+        </TopBar>
 
-      <NoteContent>
-        <p>{description}</p>
-      </NoteContent>
+        <NoteContent>
+          <p>{description}</p>
+        </NoteContent>
 
-      <BottomBar>
-        <img src={calenderImg} alt="Calender Icon" />
-        <p>{createdAt}</p>
-      </BottomBar>
-    </Container>
+        <BottomBar>
+          <img src={calenderImg} alt="Calender Icon" />
+          <p>{createdAt}</p>
+        </BottomBar>
+      </Container>
+
+      <UpdateNoteModal
+        isOpen={isUpdateNoteModalOpen}
+        onRequestClose={handleCloseUpdateNoteModal}
+        id={id}
+      />
+    </>
   )
 }
