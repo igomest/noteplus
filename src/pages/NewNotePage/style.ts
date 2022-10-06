@@ -10,7 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
 `
 
-export const NewNoteContainer = styled.div`
+export const NewNoteContainer = styled.form`
   background: var(--white);
   border-radius: 10px;
   display: flex;
@@ -26,24 +26,7 @@ export const Content = styled.div`
   height: 96%;
   padding: 20px;
   color: var(--black);
-  justify-content: space-around;
-`
-
-export const Title = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
-  height: 9vh;
-
-  input {
-    width: 100%;
-    height: 2.9rem;
-    background: var(--background);
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-  }
+  justify-content: space-between;
 `
 
 export const Description = styled.div`
@@ -51,45 +34,11 @@ export const Description = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
-  height: 16vh;
+  height: 80%;
 
   textarea {
     width: 100%;
-    height: 12vh;
-    background: var(--background);
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-  }
-`
-
-export const ReminderDate = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
-  height: 8.5vh;
-
-  input {
-    width: 100%;
-    height: 2.9rem;
-    background: var(--background);
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-  }
-`
-
-export const TagContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
-  height: 8.5vh;
-
-  input {
-    width: 100%;
-    height: 2.9rem;
+    height: 80%;
     background: var(--background);
     padding: 10px;
     border-radius: 10px;

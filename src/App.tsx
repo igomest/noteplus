@@ -6,8 +6,10 @@ import { queryClient } from './services/queryClient'
 import { GlobalStyle } from './styles/global'
 
 import 'react-toastify/dist/ReactToastify.css'
+import 'react-quill/dist/quill.snow.css'
+import 'react-quill/dist/quill.bubble.css'
+
 import { ToastContainer } from 'react-toastify'
-import { useEffect } from 'react'
 
 export const App = () => {
   return (

@@ -12,20 +12,17 @@ import {
   ProfileOptions,
   Separator
 } from './style'
+
 import logoImg from '../../assets/logo.svg'
 import profileImg from '../../assets/profile.svg'
 import moreImg from '../../assets/more.svg'
 import notesImg from '../../assets/notes.svg'
-import tagsImg from '../../assets/tags.svg'
-import binImg from '../../assets/bin.svg'
 import checklistImg from '../../assets/checklist.svg'
 import arrowImg from '../../assets/arrow.svg'
 import settingImg from '../../assets/setting.svg'
 import logoutImg from '../../assets/logout.svg'
 import { logout } from '../../services/user'
 import { useNavigate } from 'react-router-dom'
-import { useForm } from '../../hooks/useForm'
-import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 export const Sidebar = () => {
   const [openProfileOptions, handleOpenProfileOptions] = useMenu()
@@ -81,20 +78,6 @@ export const Sidebar = () => {
             <button>
               <img src={notesImg} alt="Notes Icon" />
               <p>Suas Notas</p>
-            </button>
-          </div>
-
-          <div>
-            <button>
-              <img src={tagsImg} alt="Tags Icon" />
-              <p>Tags</p>
-            </button>
-          </div>
-
-          <div>
-            <button>
-              <img src={binImg} alt="Bin Img" />
-              <p>Bin</p>
             </button>
           </div>
         </NotesContainer>

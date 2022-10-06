@@ -4,10 +4,7 @@ import { queryClient } from './queryClient'
 
 type UserTypes = {
   form?: {
-    name: string
-    password: string
-    email: string
-    age?: number
+    [key: string]: string | number
   }
   clear: () => void
   navigate: (url: string) => void
@@ -82,8 +79,8 @@ export const logout = async ({ navigate }: LogoutTypes) => {
   try {
     const response = await api.post('/user/logout')
     localStorage.removeItem('token')
-    navigate('/')
     queryClient.removeQueries()
+    navigate('/')
     console.log(response.data)
 
     return response
