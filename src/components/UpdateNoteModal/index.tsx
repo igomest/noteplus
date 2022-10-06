@@ -1,9 +1,10 @@
-import { SyntheticEvent, useState } from 'react'
+import { SyntheticEvent, useEffect, useState } from 'react'
 import Modal from 'react-modal'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import ReactQuill from 'react-quill'
 import { toast } from 'react-toastify'
 import { useForm } from '../../hooks/useForm'
+import { useTasks } from '../../hooks/useTasks'
 import { api } from '../../services/api'
 import { handlePrefetchTask } from '../../services/prefetchTask'
 import { queryClient } from '../../services/queryClient'
@@ -36,8 +37,17 @@ export const UpdateNoteModal = ({
     }
   })
 
-  handlePrefetchTask(id)
-  console.log(handlePrefetchTask)
+  const { data } = useQuery(
+    ['task', id],
+    async () => {
+      const response = await api.get(`task/${id}`)
+
+      return await response.data
+    },
+    {
+      staleTime: 1000 * 60 * 10 // 10 minutes
+    }
+  )
 
   const updateNote = useMutation(
     async ({ id, form }: UpdateNoteData) => {
@@ -81,20 +91,14 @@ export const UpdateNoteModal = ({
       overlayClassName="react-modal-overlay"
     >
       <h2>Editar</h2>
-      {/* <ReactQuill
-        modules={modules}
-        theme="snow"
-        className="toolbar"
-        value={`${form.description}`}
-        onChange={handleInputChange}
-      /> */}
+
       <textarea
         name="description"
         value={form.description}
         onChange={handleInputChange}
-      >
-        jkdfhdjsd
-      </textarea>
+      />
+      {/* {data?.data?.description}
+      </textarea> */}
 
       <ButtonContainer>
         <div onClick={onRequestClose}>

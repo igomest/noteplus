@@ -48,11 +48,16 @@ export const NoteTitle = styled.div`
 `
 
 export const Title = styled.div`
-  width: 15rem;
+  width: 12rem;
   height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* border: 1px solid black; */
+`
+export const Loading = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
 `
 
 export const TagsContainer = styled.div`
@@ -63,4 +68,24 @@ export const TagsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+export const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 24rem;
+  /* border: 1px solid black; */
+
+  img {
+    width: 380px;
+    height: 380px;
+  }
+
+  h3 {
+    position: absolute;
+    margin-top: 16rem;
+    font-style: italic;
+  }
 `

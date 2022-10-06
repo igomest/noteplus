@@ -49,6 +49,12 @@ export const NoteCard = ({ description, createdAt, id }: TaskProps) => {
     async (id: string) => {
       const response = await api.delete(`/task/${id}`)
 
+      const token = localStorage.getItem('token')
+
+      if (token) {
+        api.defaults.headers.common.Authorization = token
+      }
+
       console.log(response.data)
 
       return response.data
